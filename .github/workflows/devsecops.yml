@@ -1,14 +1,18 @@
 name: DevSecOps Scan
 
-on: [push] # سيعمل الـ Job تلقائياً عند كل عملية رفع كود
+on: [push]
 
 jobs:
   snyk-security-scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 # جلب الكود من المستودع
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install  # هذه هي الخطوة التي كانت تنقصنا!
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} # المفتاح الذي أضفته في الإعدادات
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
