@@ -1,0 +1,10 @@
+{
+  "name": "secure-pipeline-lab",
+  "version": "1.0.0",
+  "description": "DevSecOps Demo",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lodash": "4.17.15" 
+  }
+}
